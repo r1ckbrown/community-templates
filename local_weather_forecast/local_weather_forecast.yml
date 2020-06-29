@@ -782,7 +782,6 @@ spec:
         weather, using a Python script to return more data than the openweathermap
         Telegraf input
     name: Local Weather Forecast
-
 ---
 apiVersion: influxdata.com/v2alpha1
 kind: Telegraf
@@ -790,49 +789,49 @@ metadata:
     name: local_weather_forecast
 spec:
     config: |
-      # This Telegraf config runs a Python script to retrieve weather forcasts from any city in the world every 30 minutes.
-      #  It will output to InfluxDB v2 and to stdout
-      #
-      # Environment variables required:
-      #  INFLUX_URL - the URL of your instance of InfluxDB v2
-      #  INFLUX_TOKEN - a token you've previously created in InfluxDB v2 for the use of this Telegraf
-      #  INFLUX_ORG - which Organisation name to use in InfluxDB
-      #  INFLUX_BUCKET - which bucket to store data in
-      #  OPENWEATHERMAP_CITY_ID - the city id of the city from where you want to retrieve weather data
-      #  OPENWEATHERMAP_UNITS - whether you want metric (Celcius), imperial (Fahrenheit) or normal (Kelvin) temperatures
-      #  OPENWEATHERMAP_APP_ID - the API ID you've created in OpenWeatherMap for this
+        # This Telegraf config runs a Python script to retrieve weather forcasts from any city in the world every 30 minutes.
+        #  It will output to InfluxDB v2 and to stdout
+        #
+        # Environment variables required:
+        #  INFLUX_URL - the URL of your instance of InfluxDB v2
+        #  INFLUX_TOKEN - a token you've previously created in InfluxDB v2 for the use of this Telegraf
+        #  INFLUX_ORG - which Organisation name to use in InfluxDB
+        #  INFLUX_BUCKET - which bucket to store data in
+        #  OPENWEATHERMAP_CITY_ID - the city id of the city from where you want to retrieve weather data
+        #  OPENWEATHERMAP_UNITS - whether you want metric (Celcius), imperial (Fahrenheit) or normal (Kelvin) temperatures
+        #  OPENWEATHERMAP_APP_ID - the API ID you've created in OpenWeatherMap for this
 
-      [global_tags]
+        [global_tags]
 
-      [agent]
-        interval = "10s"
-        round_interval = true
-        metric_batch_size = 1000
-        metric_buffer_limit = 10000
+        [agent]
+          interval = "10s"
+          round_interval = true
+          metric_batch_size = 1000
+          metric_buffer_limit = 10000
 
-        collection_jitter = "0s"
-        flush_interval = "10s"
-        flush_jitter = "0s"
+          collection_jitter = "0s"
+          flush_interval = "10s"
+          flush_jitter = "0s"
 
-        precision = ""
-        debug = false
-        quiet = true
-        hostname = ""
-        omit_hostname = false
+          precision = ""
+          debug = false
+          quiet = true
+          hostname = ""
+          omit_hostname = false
 
-      [[outputs.influxdb_v2]]
-        urls = ["$INFLUX_URL"]
-        token = "$INFLUX_TOKEN"
-        organization = "$INFLUX_ORG"
-        bucket = "$INFLUX_BUCKET"
+        [[outputs.influxdb_v2]]
+          urls = ["$INFLUX_URL"]
+          token = "$INFLUX_TOKEN"
+          organization = "$INFLUX_ORG"
+          bucket = "$INFLUX_BUCKET"
 
-      [[outputs.file]]
-        files = ["stdout"]
+        [[outputs.file]]
+          files = ["stdout"]
 
-      [[inputs.exec]]
-        commands = [
-          "python3 onecall.py \"$OPENWEATHERMAP_CITY_ID\" \"$OPENWEATHERMAP_UNITS\" \"$OPENWEATHERMAP_APP_ID\""
-        ]
-        interval = "30m"
-        timeout = "5s"
-        data_format = "influx"
+        [[inputs.exec]]
+          commands = [
+            "python3 onecall.py \"$OPENWEATHERMAP_CITY_ID\" \"$OPENWEATHERMAP_UNITS\" \"$OPENWEATHERMAP_APP_ID\""
+          ]
+          interval = "30m"
+          timeout = "5s"
+          data_format = "influx"
