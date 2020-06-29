@@ -27,10 +27,11 @@ Start by reading [how to use a template](docs/use_a_template.md), then check eac
 | [InfluxDB 1.x Monitor](monitoring_influxdb_1.x/) | Monitor your already running InfluxDB 1.x instance. | [@russorat](https://github.com/russorat) |
 | [InfluxDB 2 OSS Metrics](influxdb2_oss_metrics/) | Monitor your InfluxDB 2 OSS instance using scrapers. | [@russorat](https://github.com/russorat) |
 | [Island Pulse (Modbus)](modbus/) | Monitor Island Pulse energy gauge over Modbus | Ray Farias |
+| [Jenkins](jenkins/) | Monitor your Jenkins node and jobs. | Ray Farias |
 | [Kafka](kafka/) | Monitor Kafka via Jolokia agent | [@samhld](https:/github.com/samhld)
 | [Kubernetes Dashboards](k8s/) | Monitor your Kubernetes cluster. | [bonitoo.io](.) |
 | [Linux System Monitor](linux_system/) | Monitor system resources on one or more Linux hosts. | [@russorat](https://github.com/russorat) |
-| [Jenkins](jenkins/) | Monitor your Jenkins node and jobs. | Ray Farias |
+| [Local Weather Forecast](local_weather_forecast/) | Monitor the weather in cities around the World. | [@Rick Brown](https://github.com/r1ckbrown) |
 | [MongoDB](mongodb/) | View information of MongoDB Server. Uptime, Connectios, Queries, Documents Operations and more. | [Ignacio Van Droogenbroeck](https://github.com/xe-nvdk) |
 | [Microsoft SQL Server](mssql/) | View information of SQL Server Instance. Uptime, Databases Activities, Read and Write times and more | [Ignacio Van Droogenbroeck](https://github.com/xe-nvdk) |
 | [MySQL / MariaDB](mysql_mariadb/) | View information of MySQL Instance. Uptime, Current Queries, Active Threads, Connections, Traffic and more. | [Ignacio Van Droogenbroeck](https://github.com/xe-nvdk) |
