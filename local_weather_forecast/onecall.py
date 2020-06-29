@@ -16,7 +16,7 @@ if len(sys.argv) == 4:
 else:
     cityid = '5391959'
     units = 'metric'
-    appid = 'e206164c0af3a7d9774da7b49f9ba6ad'
+    appid = ''
 
 # This function sets the common tags for each line we'll be generating
 # There's a case for lat and lon to be values rather than tags, but it's unclear as to the relative importance of
